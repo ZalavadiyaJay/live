@@ -1,0 +1,132 @@
+
+<div class="body">
+    <section class="container">
+      <header>Edit Form</header>
+      <form class="form" [formGroup]="mainForm" (ngSubmit)="UpdateData()">
+        <label>Mr./Mrs.</label>
+        <div class="select-box">
+          <select name="dropdown" formControlName="dropdown" [(ngModel)]="editData.dropdown" >
+            <option value="">Please Select</option>
+            <option value="mr">Mr.</option>
+            <option value="mrs">Mrs.</option>
+          </select>
+          <span style="color: red" *ngIf="dropdownVali && dropdownVali.invalid && dropdownVali.touched">Invalid Selector</span>
+
+
+        </div>
+  
+        <div class="input-box">
+          <label>First Name</label>
+          <input
+            type="text"
+            placeholder="Enter First name"
+            formControlName="firstname"
+            [(ngModel)]="editData.firstname"
+
+          />
+        </div>
+        <span style="color: red" *ngIf="firstnameVali && firstnameVali.invalid && firstnameVali.touched">Invalid First Name</span>
+
+
+
+  
+        <div class="input-box">
+          <label>Last Name</label>
+          <input
+            type="text"
+            placeholder="Enter Last name"
+            formControlName="lastname"
+            [(ngModel)]="editData.lastname"
+          />
+        <span style="color: red" *ngIf="lastnameVali && lastnameVali.invalid && lastnameVali.touched">Invalid Last Name</span>
+
+
+
+        </div>
+  
+        <div class="input-box">
+          <label>Email Address</label>
+          <input type="text" placeholder="Enter email address" formControlName="email" [(ngModel)]="editData.email" />
+      </div>
+  
+      <span style="color: red" *ngIf="emailVali && emailVali.invalid && emailVali.touched">Invalid email</span>
+  
+      <div class="input-box">
+        <label>Country</label>
+        <div class="select-box">
+          <select formControlName="country" (change)="onCountrySelect($event)" [(ngModel)]="editData.country" >
+              <option value="">Country</option>
+              <option *ngFor="let country of allCountries" [value]="country.value" >{{ country.desc }}</option>
+          </select>
+          <span style="color: red" *ngIf="countryVali && countryVali.invalid && countryVali.touched">Invalid Selector</span>
+      
+  
+          </div>
+    </div>
+  
+        <div class="column">
+
+          <div class="input-box">
+            <label>Country Code</label>
+            <input type="text" placeholder="Country Code" formControlName="countrycode" [(ngModel)]="mobileCode" [(ngModel)]="editData.countrycode" />
+            <span style="color: red" *ngIf="countrycodeVali && countrycodeVali.invalid && countrycodeVali.touched">Invalid Country Code</span>
+          </div>
+
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input
+              type="text"
+              placeholder="Enter phone number"
+              maxlength="10"
+              minlength="10"
+              formControlName="phone"
+              [(ngModel)]="editData.phone"
+            />
+            <span style="color: red" *ngIf="phoneVali && phoneVali.invalid && phoneVali.touched">Invalid Phone</span>
+
+
+
+          </div>
+        </div>
+  
+
+  
+        <div class="input-box address">
+          <label>Address</label>
+          <input
+            type="text"
+            placeholder="Enter street address"
+            formControlName="address"
+            [(ngModel)]="editData.address"/>
+            <span style="color: red" *ngIf="addressVali && addressVali.invalid && addressVali.touched">Invalid Address</span>
+
+
+
+        </div>
+  
+        
+  
+        <div class="gender-box">
+          <div class="gender-option">
+            <div class="gender">
+              <input
+                type="checkbox"
+                id="check-male"
+                name="gender"
+                formControlName="checkbox"
+                (click)="checkBox()"
+              />
+              <label for="check-male">Terms & Condition</label>
+            </div>
+          </div>
+        </div>
+  
+        <div class="column">
+          <button type="submit">Update</button>
+          <button type="button" (click)="cancle()">Cancle</button>
+
+        </div>
+      </form>
+    </section>
+  </div>
+  
