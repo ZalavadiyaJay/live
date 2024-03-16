@@ -54,16 +54,13 @@ public  mainForm = new FormGroup({
     dropdown : new FormControl('',Validators.required),
     firstname : new FormControl('',Validators.required),
     lastname : new FormControl('',Validators.required),
-    email : new FormControl('',Validators.email),
+    email : new FormControl('',[Validators.required , Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{3}$")]),
     phone : new FormControl('',[Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]),
     address : new FormControl('',Validators.required),
-    countrycode : new FormControl('',[Validators.required,Validators.pattern('[0-9]+$')]),
-    
+    countrycode : new FormControl('',[Validators.required]),
     country : new FormControl('',Validators.required),
     checkbox : new FormControl('')
     
-
-
   });
 
   public  data : any
@@ -99,9 +96,6 @@ public  mainForm = new FormGroup({
     let lastname = this.mainForm.get('lastname')?.value
     let fullname = firstname + ' ' + lastname
 
-
- 
-
     if (this.check) {
       let data = {
         firstname : this.mainForm.controls.firstname.value,
@@ -127,8 +121,7 @@ public  mainForm = new FormGroup({
     else{
       alert("Please Check Terms & Condition")
     }
-  
-    
+
   } 
   
   public reset(){

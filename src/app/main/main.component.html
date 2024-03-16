@@ -6,8 +6,8 @@
         <div class="select-box">
           <select name="dropdown" formControlName="dropdown" [(ngModel)]="dropdownNg">
             <option value="">Please Select</option>
-            <option value="mr">Mr.</option>
-            <option value="mrs">Mrs.</option>
+            <option value="Mr">Mr.</option>
+            <option value="Mrs">Mrs.</option>
           </select>
           <span style="color: red" *ngIf="dropdownVali && dropdownVali.invalid && dropdownVali.touched">Invalid Selector</span>
 
@@ -131,7 +131,7 @@
     <tr>
         <td [ngClass]="{ 'disabled-row': disabledRows[user.id] }">{{user.id}}</td>
         <td [ngClass]="{ 'disabled-row': disabledRows[user.id] }">{{user.dropdown}}</td>
-        <td [ngClass]="{ 'disabled-row': disabledRows[user.id] }">{{user.FullName}}</td>
+        <td [ngClass]="{ 'disabled-row': disabledRows[user.id] }">{{user.FullName | titlecase}}</td>
         <td [ngClass]="{ 'disabled-row': disabledRows[user.id] }">{{user.email}}</td>
         <td [ngClass]="{ 'disabled-row': disabledRows[user.id] }">{{user.Phone}}</td>
         <td [ngClass]="{ 'disabled-row': disabledRows[user.id] }">{{user.address}}</td>

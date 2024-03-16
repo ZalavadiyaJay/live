@@ -7,8 +7,8 @@
         <div class="select-box">
           <select name="dropdown" formControlName="dropdown" [(ngModel)]="editData.dropdown" >
             <option value="">Please Select</option>
-            <option value="mr">Mr.</option>
-            <option value="mrs">Mrs.</option>
+            <option value="Mr">Mr.</option>
+            <option value="Mrs">Mrs.</option>
           </select>
           <span style="color: red" *ngIf="dropdownVali && dropdownVali.invalid && dropdownVali.touched">Invalid Selector</span>
 
